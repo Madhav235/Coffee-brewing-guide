@@ -1,0 +1,537 @@
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+.hero {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    transition: opacity 0.8s ease-in-out;
+    opacity: 1;
+}
+
+.nav-bar {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    top: 12px;
+    z-index: 2;
+    display: flex;
+    width: 25vw;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    background: rgba(75, 46, 5, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    margin: auto;
+    border-radius: 55px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+nav a {
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+nav a:hover {
+  color: #d6a45f; 
+}
+
+nav a.active {
+  color: #d6a45f; 
+  border-bottom: 2px solid #d6a45f;
+  padding-bottom: 4px;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, #3B2F2F, #2C1B0F);
+    position: relative;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: repeating-radial-gradient(circle at 0 0,
+            rgba(0, 0, 0, 0.12) 0,
+            rgba(0, 0, 0, 0.12) 1px,
+            transparent 1px,
+            transparent 3px);
+    background-size: 4px 4px;
+    opacity: 0.3;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.text {
+    background-color: red;
+    width: 40vw;
+    height: 70vh;
+    position: absolute;
+    top: 130px;
+    left: 110px;
+    z-index: 1;
+}
+
+.brewing {
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    font-size: 106px;
+    color: #F5E6CC;
+}
+
+.art {
+    font-family: "Cedarville Cursive", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 106px;
+    display: block;
+}
+
+.image-border {
+    width: 400px;
+    height: 450px;
+    background-color: #F5E6CC;
+    top: 50%;
+    right: 50%;
+    left: 50%;
+    transform: translate(50%, -50%) rotateZ(5deg);
+    z-index: 1;
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 22px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(139, 69, 19, 0.85);
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.image-border:hover {
+    transform: translate(50%, -50%) rotateZ(5deg)scale(1.05) rotateZ(-10deg);
+    cursor: pointer;
+}
+
+.image:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.about-it {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    background-color: rgb(140, 110, 110);
+    height: 100vh;
+    z-index: 10;
+}
+
+.about-it:in-view {
+    opacity: 1;
+}
+
+.hero:has(~ .about-it:in-view) {
+    opacity: 0;
+}
+
+.french-press {
+    width: 100vw;
+    height: 100vh;
+    background-color: #E6BE9A;
+    position: relative;
+}
+
+.french-text-back {
+    background-color: #5C3A21;
+    position: absolute;
+    left: 2.5%;
+    top: 80px;
+    width: 400px;
+    height: 90px;
+}
+
+.french-text-text {
+    color: #1A1514;
+    left: 2.5%;
+    top: 95px;
+    width: 400px;
+    height: 150px;
+    font-size: 106px;
+    position: absolute;
+}
+
+.french-content-left {
+    color: #1A1514;
+    background-color: red;
+    position: absolute;
+    top: 220px;
+    left: 2.5%;
+    width: 96vw;
+    height: 70vh;
+}
+
+.french-content-right {
+    position: absolute;
+    background-color: none;
+    top: 220px;
+    right: 2.5%;
+    width: 45vw;
+    height: 70vh;
+    color:  #FAECD8;;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 39px;
+}
+
+.french-tag {
+    background-color: red;
+    width: 47vw;
+    height: 105px;
+    color: #F5E6CC;
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    font-size: 91.5px;
+}
+
+.french-below-tag {
+    background-color: #5C3A21;
+    width: 47vw;
+    height: 471px;
+    position: absolute;
+    top: 105px;
+    /* color: #FAECD8; */
+    color: #E6BE9A;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.expresso-press {
+    width: 100vw;
+    height: 100vh;
+    background-color: #2B1B0F;
+    position: relative;
+}
+
+.expresso-text-back {
+    background-color: #D6A45F;
+    position: absolute;
+    left: 2.5%;
+    top: 80px;
+    width: 400px;
+    height: 90px;
+}
+
+.expresso-text-text {
+    color: #EEDFC5;
+    left: 2.5%;
+    top: 95px;
+    width: 400px;
+    height: 150px;
+    font-size: 106px;
+    position: absolute;
+}
+
+.expresso-content-left {
+    color: #1A1514;
+    background-color: red;
+    position: absolute;
+    top: 220px;
+    left: 2.5%;
+    width: 96vw;
+    height: 70vh;
+}
+
+.expresso-content-right {
+    position: absolute;
+    background-color: none;
+    top: 220px;
+    right: 2.5%;
+    width: 45vw;
+    height: 70vh;
+    color:  #FAECD8;;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 39px;
+}
+
+.expresso-tag {
+    background-color: red;
+    width: 47vw;
+    height: 105px;
+    color: #F5E6CC;
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+
+    font-size: 91.5px;
+}
+
+.expresso-below-tag {
+    background-color: #D6A45F;
+    width: 47vw;
+    height: 471px;
+    position: absolute;
+    top: 105px;
+    /* color: #FAECD8; */
+    color: #2B1B0F;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.pour-press {
+    width: 100vw;
+    height: 100vh;
+    background-color: #EEDFC5;
+    position: relative;
+}
+
+.pour-text-back {
+    background-color: #3C2A1E;
+    position: absolute;
+    left: 2.5%;
+    top: 80px;
+    width: 210px;
+    height: 90px;
+}
+
+.pour-text-text {
+    color: #2A1B13;
+    left: 2.5%;
+    top: 95px;
+    width: 400px;
+    height: 150px;
+    font-size: 106px;
+    position: absolute;
+}
+
+.pour-content-left {
+    color: #3C2A1E;
+    background-color: red;
+    position: absolute;
+    top: 220px;
+    left: 2.5%;
+    width: 96vw;
+    height: 70vh;
+}
+
+.pour-content-right {
+    position: absolute;
+    background-color: none;
+    top: 220px;
+    right: 2.5%;
+    width: 45vw;
+    height: 70vh;
+    color:  #FAECD8;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35.5px;
+}
+
+.pour-tag {
+    background-color: red;
+    width: 47vw;
+    height: 105px;
+    color: #F5E6CC;
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    
+    font-size: 91.5px;
+}
+
+.pour-below-tag {
+    background-color: #3C2A1E;
+    width: 47vw;
+    height: 471px;
+    position: absolute;
+    top: 105px;
+    /* color: #FAECD8; */
+    color: #F5E6CC;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.cold-brew-press {
+    width: 100vw;
+    height: 100vh;
+    background-color: #3C2A1E;
+    position: relative;
+}
+
+.cold-brew-text-back {
+    background-color: #C8A97E;
+    position: absolute;
+    left: 2.5%;
+    top: 80px;
+    width: 210px;
+    height: 90px;
+}
+
+.cold-brew-text-text {
+    color: #F5E6CC;
+    left: 2.5%;
+    top: 95px;
+    width: 400px;
+    height: 150px;
+    font-size: 106px;
+    position: absolute;
+}
+
+.cold-brew-content-left {
+    color: #1A1514;
+    background-color: red;
+    position: absolute;
+    top: 220px;
+    left: 2.5%;
+    width: 96vw;
+    height: 70vh;
+}
+
+.cold-brew-content-right {
+    position: absolute;
+    background-color: none;
+    top: 220px;
+    right: 2.5%;
+    width: 45vw;
+    height: 70vh;
+    color:  #FAECD8;;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35.5px;
+}
+
+.cold-brew-tag {
+    background-color: red;
+    width: 47vw;
+    height: 105px;
+    color: #F5E6CC;
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    
+    font-size: 91.5px;
+}
+
+.cold-brew-below-tag {
+    background-color: #C8A97E;
+    width: 47vw;
+    height: 471px;
+    position: absolute;
+    top: 105px;
+    /* color: #FAECD8; */
+    color: #2B1B0F;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
+
+.aero-brew-press {
+    width: 100vw;
+    height: 100vh;
+    background-color: #F3DFC1;
+    position: relative;
+}
+
+.aero-brew-text-back {
+    background-color: #7A4B26;
+    position: absolute;
+    left: 2.5%;
+    top: 80px;
+    width: 440px;
+    height: 90px;
+}
+
+.aero-brew-text-text {
+    color: #301910;
+    left: 2.5%;
+    top: 95px;
+    width: 400px;
+    height: 150px;
+    font-size: 106px;
+    position: absolute;
+}
+
+.aero-brew-content-left {
+    color: #1A1514;
+    background-color: red;
+    position: absolute;
+    top: 220px;
+    left: 2.5%;
+    width: 96vw;
+    height: 70vh;
+}
+
+.aero-brew-content-right {
+    position: absolute;
+    background-color: none;
+    top: 220px;
+    right: 2.5%;
+    width: 45vw;
+    height: 70vh;
+    color:  #FAECD8;;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35.5px;
+}
+
+.aero-brew-tag {
+    background-color: red;
+    width: 47vw;
+    height: 105px;
+    color: #F5E6CC;
+    font-family: "Impact", "Haettenschweiler", "Arial Narrow Bold", sans-serif;
+    
+    font-size: 50px;
+}
+
+.aero-brew-below-tag {
+    background-color: #7A4B26;
+    width: 47vw;
+    height: 471px;
+    position: absolute;
+    top: 105px;
+    /* color: #FAECD8; */
+    color: #FAECD8;
+    font-family: "Patrick Hand", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 50px;
+}
